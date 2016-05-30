@@ -5,7 +5,7 @@
 typedef struct Nod {
     int data;                                   //ce va retine fiecare nod
     struct Nod * next;                          //pointeri catre elementul urmator
-};
+}Nod;
 
 
 void print_list(Nod *head) {
@@ -135,4 +135,5 @@ int main ()
     print_list(head);
     pop_poz(head,3);
     print_list(head);
+
 }

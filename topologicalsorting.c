@@ -1,5 +1,36 @@
 #include "topologicalsorting.h"
 
+typedef struct Nod {
+    int data;                                   //ce va retine fiecare nod
+    struct Nod * next;                          //pointeri catre elementul urmator
+}Nod;
+
+Nod *G[100];
+int color[100];
+
+
+void DF_TOP(int nod)
+{
+   Nod *q = G[nod];
+   color[nod] = 1;
+
+   for(;q!=NULL;q=q->next)
+    {
+      if(!color[q->data])DF_TOP(q->data);
+
+    }
+
+}
+
+
+void add(int x,int y)
+{
+    Nod* q = (Nod*) malloc(sizeof(Nod));
+    q->data = y;
+    q->next=G[x];
+    G[x]=q;
+}
+
 void DF_TOP(int nod)
 {
    node*q = G[nod];
